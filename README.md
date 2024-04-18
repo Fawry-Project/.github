@@ -137,7 +137,93 @@ COUPON_CONSUMPTION {
 }
 ```
 
+## 5. Store Service
+Store Service is a spring boot application designed for straightforward store inventory management. It comprises three main classes: Store, Stock, and ProductsConsumptions.
+
+Check out the [Stores API README file.](https://github.com/Fawry-Project/Stores-Service)
+
+and here is the ERD for the database used in this service:
+
+```mermaid
+erDiagram
+STORE ||--o{ STOCK : "has"
+STORE {
+    int id pk
+    string name
+    string phone_number
+    string city
+}
+
+STOCK {
+    int id pk
+    int product_code fk
+    int store_id fk
+    int quantity 
+    int consumed_quantity
+    date creation_date
+}
+```
+## 6.   Admin Management and Authentication Service
+This service is an admin management and authentication service built using Spring Boot, Spring Security, and JSON Web Tokens (JWT). It provides a secure and efficient way to manage admin users, authenticate them using email and password, and generate JWTs for accessing protected resources. Additionally, admins have the ability to add other admins and activate or deactivate their accounts.
 
 
+Check out the [Admin API README file.](https://github.com/Fawry-Project/Admin-Service)
 
+and here is the ERD for the database used in this service:
+
+```mermaid
+erDiagram
+user {
+        Integer id
+        String firstname
+        String lastname
+        String email
+        String password
+        boolean enable
+        Role role
+    }
+```
+
+## 7.   Bank Management Service
+This is a Spring Boot application for a banking system that provides management for user accounts, transactions, and user information. The app is built using the Spring Boot framework and a MySQL database to store banking data.
+
+
+Check out the [Bank API README file.](https://github.com/Fawry-Project/Bank-API)
+
+and here is the ERD for the database used in this service:
+
+```mermaid
+erDiagram
+BANK_USER ||--o{ CARD : "has"
+BANK_USER{
+    int id pk
+    string name
+    string passward
+    string email
+    string phone_number
+    string addrees
+    string status
+    string role
+    date creation_date
+}
+
+CARD ||--o{ TRANSACTION : "has"
+CARD {
+    int id pk
+    int user_id fk
+    string card_number
+    int csv
+    double balance
+    string state
+    date creation_date
+}
+
+TRANSACTION{
+    int id pk
+    int card_id fk
+    string type(deposite)(withdraw)
+    int amount
+    date time
+}
+```
 ---
