@@ -140,7 +140,7 @@ COUPON_CONSUMPTION {
 ## 5. Store Service
 Store Service is a spring boot application designed for straightforward store inventory management. It comprises three main classes: Store, Stock, and ProductsConsumptions.
 
-Check out the [Stores API README file.](https://github.com/Fawry-Project/Stores-Service)
+Check out the [Stores API README file.](https://github.com/Fawry-Project/store-service)
 
 and here is the ERD for the database used in this service:
 
